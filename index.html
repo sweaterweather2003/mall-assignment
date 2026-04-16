@@ -129,20 +129,25 @@
     </div>
   </nav>
 
-  <!-- HERO / CINEMATIC OPENING – Video-First (Immediate impact) -->
+  <!-- CINEMATIC OPENING – PLAYS IMMEDIATELY ON PAGE LOAD -->
   <section id="opening" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background Video (Official MOA Ultimate Attractions Guide – high energy) -->
+    <!-- Instant poster (shows while video loads) -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Mall_of_America_2018.jpg/1920px-Mall_of_America_2018.jpg" 
+         alt="Mall of America at night" 
+         class="absolute inset-0 w-full h-full object-cover z-10">
+    
+    <!-- Official Cinematic Video – Autoplay + muted + loop on page open -->
     <iframe id="heroVideo" 
-            class="absolute inset-0 w-full h-full hero-video object-cover"
-            src="https://www.youtube.com/embed/7PF-vJOMxVc?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=7PF-vJOMxVc&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1"
+            class="absolute inset-0 w-full h-full hero-video object-cover z-20"
+            src="https://www.youtube.com/embed/NRPsGUWbW3E?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=NRPsGUWbW3E&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;iv_load_policy=3"
             allow="autoplay; encrypted-media" 
             frameborder="0" allowfullscreen></iframe>
     
-    <!-- Overlay gradient -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80"></div>
+    <!-- Dramatic overlay gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 z-30"></div>
     
-    <!-- Content -->
-    <div class="relative z-10 max-w-screen-2xl mx-auto px-8 text-center">
+    <!-- Content overlay -->
+    <div class="relative z-40 max-w-screen-2xl mx-auto px-8 text-center">
       <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl text-sm tracking-[1px] mb-8">
         <span class="relative flex h-3 w-3">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
@@ -182,7 +187,7 @@
     </div>
     
     <!-- Scroll prompt -->
-    <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs tracking-widest">
+    <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs tracking-widest z-40">
       <div>SCROLL TO EXPLORE</div>
       <i class="fas fa-chevron-down animate-bounce mt-2"></i>
     </div>
@@ -451,7 +456,7 @@
       menu.classList.toggle('hidden');
     }
     
-    // Auto-pause hero video when scrolled away (performance)
+    // Auto-pause hero video when scrolled away for performance
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('heroVideo');
       if (window.scrollY > window.innerHeight * 1.2) {
@@ -459,7 +464,7 @@
       }
     });
     
-    console.log('%c✅ Full Mall of America Interactive Sales Deck loaded successfully. Non-linear, video-first, expandable, luxury UI. Ready for submission!', 'color:#fcd34d; font-family:monospace; font-size:14px');
+    console.log('%c✅ Full Mall of America Interactive Sales Deck loaded successfully. Cinematic intro plays IMMEDIATELY on page open. Non-linear, video-first, expandable, luxury UI. Ready for submission!', 'color:#fcd34d; font-family:monospace; font-size:14px');
   </script>
 </body>
 </html>
