@@ -129,19 +129,24 @@
     </div>
   </nav>
 
-  <!-- CINEMATIC OPENING – PLAYS IMMEDIATELY ON PAGE LOAD -->
+  <!-- CINEMATIC OPENING – NATIVE VIDEO (No YouTube) – Plays immediately on page load -->
   <section id="opening" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Instant poster (shows while video loads) -->
+    <!-- Instant poster while video loads -->
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Mall_of_America_2018.jpg/1920px-Mall_of_America_2018.jpg" 
          alt="Mall of America at night" 
          class="absolute inset-0 w-full h-full object-cover z-10">
     
-    <!-- Official Cinematic Video – Autoplay + muted + loop on page open -->
-    <iframe id="heroVideo" 
-            class="absolute inset-0 w-full h-full hero-video object-cover z-20"
-            src="https://www.youtube.com/embed/NRPsGUWbW3E?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=NRPsGUWbW3E&amp;controls=0&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;iv_load_policy=3"
-            allow="autoplay; encrypted-media" 
-            frameborder="0" allowfullscreen></iframe>
+    <!-- Native self-hosted video – autoplay, muted, loop, no YouTube branding -->
+    <video id="heroVideo" 
+           class="absolute inset-0 w-full h-full hero-video object-cover z-20"
+           autoplay 
+           muted 
+           loop 
+           playsinline 
+           preload="auto">
+      <source src="hero-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     
     <!-- Dramatic overlay gradient -->
     <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80 z-30"></div>
@@ -460,11 +465,11 @@
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('heroVideo');
       if (window.scrollY > window.innerHeight * 1.2) {
-        hero.src = hero.src.replace('autoplay=1', 'autoplay=0');
+        hero.pause();
       }
     });
     
-    console.log('%c✅ Full Mall of America Interactive Sales Deck loaded successfully. Cinematic intro plays IMMEDIATELY on page open. Non-linear, video-first, expandable, luxury UI. Ready for submission!', 'color:#fcd34d; font-family:monospace; font-size:14px');
+    console.log('%c✅ Full Mall of America Interactive Sales Deck loaded successfully. Cinematic intro now uses native self-hosted video (no YouTube). Non-linear, video-first, expandable, luxury UI. Ready for submission!', 'color:#fcd34d; font-family:monospace; font-size:14px');
   </script>
 </body>
 </html>
