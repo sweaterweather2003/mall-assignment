@@ -11,12 +11,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
     
     :root {
-      --tw-color-amber: #fcd34d;
+      --accent: #14b8a6;
     }
     
     body {
       font-family: 'Inter', system_ui, sans-serif;
       zoom: 80%;
+      background: linear-gradient(135deg, #0a0a0a, #0f2c2a, #1a0f2e);
+      background-attachment: fixed;
     }
     
     .heading-font {
@@ -43,12 +45,18 @@
       height: 2px;
       bottom: -2px;
       left: 0;
-      background-color: #fcd34d;
+      background-color: var(--accent);
       transition: width 0.3s ease;
     }
     
-    .nav-link:hover:after {
+    .nav-link:hover:after,
+    .nav-link.active:after {
       width: 100%;
+    }
+    
+    .nav-link.active {
+      color: var(--accent);
+      font-weight: 600;
     }
     
     .card-hover {
@@ -66,7 +74,7 @@
     
     .cta-button:hover {
       transform: scale(1.05);
-      background-color: #fcd34d;
+      background-color: var(--accent);
       color: #000;
     }
     
@@ -85,23 +93,27 @@
   <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-white/10">
     <div class="max-w-screen-2xl mx-auto px-8 py-6 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 bg-amber-400 rounded-2xl flex items-center justify-center text-black font-bold text-2xl leading-none pt-0.5">MOA</div>
+        <div class="w-9 h-9 bg-[#14b8a6] rounded-2xl flex items-center justify-center text-black font-bold text-2xl leading-none pt-0.5">MOA</div>
         <h1 class="heading-font text-3xl tracking-[-1px]">MALL OF AMERICA®</h1>
       </div>
 
       <div class="hidden md:flex items-center gap-9 text-sm font-medium uppercase tracking-widest">
-        <a href="#opening" class="nav-link">Opening</a>
-        <a href="#why" class="nav-link">Why MOA</a>
-        <a href="#retail" class="nav-link">Retail</a>
-        <a href="#luxury" class="nav-link">Luxury</a>
-        <a href="#dining" class="nav-link">Dining &amp; Lifestyle</a>
-        <a href="#attractions" class="nav-link">Attractions</a>
-        <a href="#events" class="nav-link">Events &amp; Platform</a>
-        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' });" class="nav-link text-amber-400 font-semibold flex items-center gap-1">EVENTS MODULE <i class="fas fa-chevron-right text-xs"></i></a>
+        <a href="#opening" id="nav-opening" class="nav-link">Opening</a>
+        <a href="#why" id="nav-why" class="nav-link">Why MOA</a>
+        <a href="#retail" id="nav-retail" class="nav-link">Retail</a>
+        <a href="#luxury" id="nav-luxury" class="nav-link">Luxury</a>
+        <a href="#dining" id="nav-dining" class="nav-link">Dining &amp; Lifestyle</a>
+        <a href="#attractions" id="nav-attractions" class="nav-link">Attractions</a>
+        <a href="#events" id="nav-events" class="nav-link">Events &amp; Platform</a>
+        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' });" 
+           id="nav-events-module" class="nav-link">EVENTS MODULE <i class="fas fa-chevron-right text-xs"></i></a>
       </div>
 
       <div class="flex items-center gap-4">
-        <a href="mailto:leasing@mallofamerica.com" class="px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-amber-400 transition-all">LEASING INQUIRY</a>
+        <a href="mailto:leasing@mallofamerica.com" 
+           class="px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-[#14b8a6] hover:text-black transition-all">
+          LEASING INQUIRY
+        </a>
         <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
       </div>
     </div>
@@ -115,12 +127,8 @@
         <a href="#dining" onclick="toggleMobileMenu()" class="nav-link">Dining &amp; Lifestyle</a>
         <a href="#attractions" onclick="toggleMobileMenu()" class="nav-link">Attractions</a>
         <a href="#events" onclick="toggleMobileMenu()" class="nav-link">Events &amp; Platform</a>
-        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu();" class="nav-link text-amber-400">EXPANDABLE EVENTS MODULE</a>
-        <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
-          <a href="mailto:leasing@mallofamerica.com" class="block text-center py-4 bg-white text-black rounded-3xl font-semibold">Retail Leasing</a>
-          <a href="mailto:sponsorship@mallofamerica.com" class="block text-center py-4 border border-white/70 rounded-3xl font-semibold">Sponsorship</a>
-          <a href="mailto:events@mallofamerica.com" class="block text-center py-4 border border-white/70 rounded-3xl font-semibold">Event Booking</a>
-        </div>
+        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu();" 
+           class="nav-link">EXPANDABLE EVENTS MODULE</a>
       </div>
     </div>
   </nav>
@@ -135,16 +143,16 @@
     <div class="relative z-40 max-w-screen-2xl mx-auto px-8 text-center">
       <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl text-sm tracking-[1px] mb-8">
         <span class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-400"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14b8a6] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-[#14b8a6]"></span>
         </span>
         NORTH AMERICA’S LARGEST SHOPPING + ENTERTAINMENT COMPLEX
       </div>
       <h1 class="heading-font text-6xl md:text-7xl lg:text-8xl font-bold tracking-[-2px] leading-none mb-6">THE WORLD’S<br>MOST IMMERSIVE<br>DESTINATION</h1>
-      <p class="text-2xl md:text-3xl text-amber-300 max-w-2xl mx-auto mb-12">5.6 million sq ft • 40+ million visitors yearly • 520+ stores • 7-acre indoor theme park</p>
+      <p class="text-2xl md:text-3xl text-[#14b8a6] max-w-2xl mx-auto mb-12">5.6 million sq ft • 40+ million visitors yearly • 520+ stores • 7-acre indoor theme park</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="#why" class="cta-button px-10 py-5 bg-white text-black font-semibold rounded-3xl text-lg inline-flex items-center gap-3">DISCOVER THE SCALE <i class="fas fa-arrow-right"></i></a>
-        <button onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' })" class="cta-button px-10 py-5 border-2 border-white/80 hover:border-amber-400 font-semibold rounded-3xl text-lg inline-flex items-center gap-3">EXPLORE EVENTS PLATFORM</button>
+        <button onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' })" class="cta-button px-10 py-5 border-2 border-white/80 hover:border-[#14b8a6] font-semibold rounded-3xl text-lg inline-flex items-center gap-3">EXPLORE EVENTS PLATFORM</button>
       </div>
     </div>
     <div class="absolute bottom-12 left-1/2 flex flex-col items-center text-xs tracking-widest z-40">
@@ -154,7 +162,7 @@
   </section>
 
   <!-- WHY THIS PROPERTY -->
-  <section id="why" class="section py-28 bg-zinc-950">
+  <section id="why" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="grid lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-5">
@@ -162,21 +170,21 @@
           <p class="text-xl text-zinc-400 mb-10">A true small-city destination that drives foot traffic no standalone retailer or venue could ever generate alone.</p>
           <div class="space-y-10">
             <div class="flex gap-8">
-              <div class="text-amber-400 text-6xl font-light leading-none">5.6M</div>
+              <div class="text-[#14b8a6] text-6xl font-light leading-none">5.6M</div>
               <div>
                 <div class="text-2xl font-semibold">Gross square feet</div>
                 <div class="text-zinc-400">Largest in North America</div>
               </div>
             </div>
             <div class="flex gap-8">
-              <div class="text-amber-400 text-6xl font-light leading-none">40M+</div>
+              <div class="text-[#14b8a6] text-6xl font-light leading-none">40M+</div>
               <div>
                 <div class="text-2xl font-semibold">Annual visitors</div>
                 <div class="text-zinc-400">32–40 million • 40% from outside 150-mile radius • 10% international</div>
               </div>
             </div>
             <div class="flex gap-8">
-              <div class="text-amber-400 text-6xl font-light leading-none">520+</div>
+              <div class="text-[#14b8a6] text-6xl font-light leading-none">520+</div>
               <div>
                 <div class="text-2xl font-semibold">Stores &amp; restaurants</div>
                 <div class="text-zinc-400">Plus 7-acre Nickelodeon Universe theme park &amp; SEA LIFE Aquarium</div>
@@ -192,7 +200,7 @@
   </section>
 
   <!-- RETAIL -->
-  <section id="retail" class="section py-28 bg-black">
+  <section id="retail" class="section py-28 bg-gradient-to-br from-black to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
@@ -202,25 +210,25 @@
           <h2 class="heading-font text-5xl font-bold mb-6">Retail That Performs</h2>
           <p class="text-xl text-zinc-400 mb-10">520+ stores. Flagship locations. Pop-ups. The perfect mix of luxury, mid-tier, and experiential retail that keeps millions coming back every year.</p>
           <div class="grid grid-cols-2 gap-8">
-            <div class="card-hover bg-zinc-900 rounded-3xl p-8">
-              <div class="text-amber-400 text-5xl mb-4">520+</div>
+            <div class="card-hover bg-zinc-900/80 rounded-3xl p-8">
+              <div class="text-[#14b8a6] text-5xl mb-4">520+</div>
               <div class="font-semibold text-lg">World-class retailers</div>
               <div class="text-zinc-400 text-sm mt-2">Nordstrom, Macy’s, Apple, LEGO and dozens of flagships</div>
             </div>
-            <div class="card-hover bg-zinc-900 rounded-3xl p-8">
-              <div class="text-amber-400 text-5xl mb-4">Growth</div>
+            <div class="card-hover bg-zinc-900/80 rounded-3xl p-8">
+              <div class="text-[#14b8a6] text-5xl mb-4">Growth</div>
               <div class="font-semibold text-lg">New openings every quarter</div>
               <div class="text-zinc-400 text-sm mt-2">Strong sales trajectory and constant foot traffic</div>
             </div>
           </div>
-          <a href="mailto:leasing@mallofamerica.com" class="mt-10 inline-block px-8 py-4 border border-amber-400 text-amber-400 rounded-3xl font-medium">Explore Leasing Opportunities</a>
+          <a href="mailto:leasing@mallofamerica.com" class="mt-10 inline-block px-8 py-4 border border-[#14b8a6] text-[#14b8a6] rounded-3xl font-medium">Explore Leasing Opportunities</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- LUXURY -->
-  <section id="luxury" class="section py-28 bg-zinc-950">
+  <section id="luxury" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#1a0f2e]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div class="order-2 md:order-1">
@@ -228,12 +236,12 @@
           <p class="text-xl text-zinc-400 mb-10">From Swiss chocolatier Läderach to Arabian Oud and premium flagship stores – MOA delivers the luxury experience in a destination setting that feels exclusive yet accessible.</p>
           <div class="flex flex-wrap gap-8">
             <div class="card-hover flex-1 bg-black rounded-3xl p-8 text-center min-w-[160px]">
-              <div class="text-amber-400 text-5xl mb-6">🛍️</div>
+              <div class="text-[#14b8a6] text-5xl mb-6">🛍️</div>
               <h4 class="font-semibold text-xl">Flagship Luxury Retail</h4>
               <p class="text-zinc-400 mt-3">High-end brands thrive where visitors arrive ready to spend.</p>
             </div>
             <div class="card-hover flex-1 bg-black rounded-3xl p-8 text-center min-w-[160px]">
-              <div class="text-amber-400 text-5xl mb-6">✨</div>
+              <div class="text-[#14b8a6] text-5xl mb-6">✨</div>
               <h4 class="font-semibold text-xl">Tax-Free Shopping</h4>
               <p class="text-zinc-400 mt-3">Clothing &amp; shoes are sales-tax free – a massive draw for tourists.</p>
             </div>
@@ -247,7 +255,7 @@
   </section>
 
   <!-- DINING & LIFESTYLE -->
-  <section id="dining" class="section py-28 bg-black">
+  <section id="dining" class="section py-28 bg-gradient-to-br from-black to-[#2a1a0f]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
@@ -256,7 +264,7 @@
         <div>
           <h2 class="heading-font text-5xl font-bold mb-6">Dining &amp; Lifestyle – Not an Afterthought</h2>
           <p class="text-xl text-zinc-400 mb-10">80+ restaurants and dining experiences that turn a shopping trip into a full-day destination. Food is a major traffic driver and lifestyle draw.</p>
-          <div class="mt-10 bg-zinc-900 rounded-3xl p-8 text-amber-300 text-2xl font-light leading-tight">
+          <div class="mt-10 bg-zinc-900 rounded-3xl p-8 text-[#14b8a6] text-2xl font-light leading-tight">
             “People don’t just shop at MOA — they eat, play, stay, and return again and again.”
           </div>
         </div>
@@ -265,7 +273,7 @@
   </section>
 
   <!-- ATTRACTIONS & ENTERTAINMENT -->
-  <section id="attractions" class="section py-28 bg-zinc-950">
+  <section id="attractions" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div class="order-2 md:order-1">
@@ -280,7 +288,7 @@
   </section>
 
   <!-- EVENTS & PLATFORM -->
-  <section id="events" class="section py-28 bg-black">
+  <section id="events" class="section py-28 bg-gradient-to-br from-black to-[#1a0f2e]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
@@ -290,7 +298,7 @@
           <h2 class="heading-font text-5xl font-bold mb-6">Events &amp; Global Platform</h2>
           <p class="max-w-2xl text-xl mb-12">Over 400 events every year — concerts, celebrity appearances, product launches, corporate activations. MOA is a proven stage that already has the audience.</p>
           <div class="text-center py-12 bg-zinc-900 rounded-3xl">
-            <p class="text-amber-400 text-5xl font-light">400+</p>
+            <p class="text-[#14b8a6] text-5xl font-light">400+</p>
             <p class="uppercase text-sm tracking-widest mt-2">Events hosted annually</p>
           </div>
         </div>
@@ -299,21 +307,21 @@
   </section>
 
   <!-- PHASE 2: FULLY WORKING EXPANDABLE EVENTS MODULE -->
-  <section id="expand-events" class="section py-28 bg-zinc-950">
+  <section id="expand-events" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="flex justify-between items-end border-b border-white/10 pb-8">
         <div>
-          <span class="text-amber-400 uppercase tracking-widest text-sm font-medium">PHASE 2 • EXPANDABLE</span>
+          <span class="text-[#14b8a6] uppercase tracking-widest text-sm font-medium">PHASE 2 • EXPANDABLE</span>
           <h2 class="heading-font text-5xl font-bold">Events Module</h2>
         </div>
-        <a href="mailto:events@mallofamerica.com" class="px-8 py-4 bg-amber-400 text-black font-semibold rounded-3xl flex items-center gap-3 hover:scale-105 transition">BOOK YOUR ACTIVATION <i class="fas fa-arrow-right"></i></a>
+        <a href="mailto:events@mallofamerica.com" class="px-8 py-4 bg-[#14b8a6] text-black font-semibold rounded-3xl flex items-center gap-3 hover:scale-105 transition">BOOK YOUR ACTIVATION <i class="fas fa-arrow-right"></i></a>
       </div>
       <p class="mt-8 mb-12 max-w-xl text-zinc-400">Past highlights, venue specs, and immediate booking paths. Click any card to see full activation potential.</p>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-black rounded-3xl overflow-hidden card-hover">
           <iframe width="100%" height="210" src="https://www.youtube.com/embed/7PF-vJOMxVc?mute=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>
           <div class="p-7">
-            <div class="text-xs uppercase text-amber-400 mb-1">2025 Activation</div>
+            <div class="text-xs uppercase text-[#14b8a6] mb-1">2025 Activation</div>
             <h4 class="font-semibold text-xl">Slime Break Showdown – Nickelodeon</h4>
             <p class="text-zinc-400 text-sm mt-2">4-week immersive brand experience with 1.2M+ impressions</p>
             <div class="mt-6 text-xs flex justify-between text-zinc-400"><div>Venue: Rotunda</div><div>Capacity: 5,000+</div></div>
@@ -322,7 +330,7 @@
         <div class="bg-black rounded-3xl overflow-hidden card-hover">
           <div class="h-52 bg-zinc-900 flex items-center justify-center text-6xl">🎤</div>
           <div class="p-7">
-            <div class="text-xs uppercase text-amber-400 mb-1">Recurring</div>
+            <div class="text-xs uppercase text-[#14b8a6] mb-1">Recurring</div>
             <h4 class="font-semibold text-xl">Live Music Series &amp; Celebrity Appearances</h4>
             <p class="text-zinc-400 text-sm mt-2">400+ events including major concerts and brand launches</p>
             <div class="mt-6 text-xs flex justify-between text-zinc-400"><div>Multiple venues</div><div>Book now</div></div>
@@ -331,7 +339,7 @@
         <div class="bg-black rounded-3xl overflow-hidden card-hover">
           <div class="h-52 bg-gradient-to-br from-purple-900 to-black flex items-center justify-center text-6xl">🛍️</div>
           <div class="p-7">
-            <div class="text-xs uppercase text-amber-400 mb-1">Corporate</div>
+            <div class="text-xs uppercase text-[#14b8a6] mb-1">Corporate</div>
             <h4 class="font-semibold text-xl">Product Launches &amp; Brand Activations</h4>
             <p class="text-zinc-400 text-sm mt-2">Proven ROI for sponsors – direct access to 40M+ visitors</p>
             <div class="mt-6 text-xs flex justify-between text-zinc-400"><div>Exposition space available</div><div>CTA: Reserve</div></div>
@@ -342,13 +350,13 @@
   </section>
 
   <!-- FINAL CTA SECTION -->
-  <section class="py-28 bg-black border-t border-b border-white/10">
+  <section class="py-28 bg-gradient-to-br from-black to-[#0f2c2a] border-t border-b border-white/10">
     <div class="max-w-screen-2xl mx-auto px-8 text-center">
       <h2 class="heading-font text-5xl md:text-6xl font-bold mb-8">Ready to be part of the story that millions experience every year?</h2>
       <div class="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-        <a href="mailto:leasing@mallofamerica.com" class="px-10 py-6 border border-white/70 hover:bg-white hover:text-black rounded-3xl text-lg font-medium transition">Retail Leasing Inquiry</a>
-        <a href="mailto:sponsorship@mallofamerica.com" class="px-10 py-6 border border-white/70 hover:bg-white hover:text-black rounded-3xl text-lg font-medium transition">Sponsorship &amp; Brand Partnership</a>
-        <a href="mailto:events@mallofamerica.com" class="px-10 py-6 border border-white/70 hover:bg-white hover:text-black rounded-3xl text-lg font-medium transition">Event / Venue Booking</a>
+        <a href="mailto:leasing@mallofamerica.com" class="px-10 py-6 border border-white/70 hover:bg-[#14b8a6] hover:text-black rounded-3xl text-lg font-medium transition">Retail Leasing Inquiry</a>
+        <a href="mailto:sponsorship@mallofamerica.com" class="px-10 py-6 border border-white/70 hover:bg-[#14b8a6] hover:text-black rounded-3xl text-lg font-medium transition">Sponsorship &amp; Brand Partnership</a>
+        <a href="mailto:events@mallofamerica.com" class="px-10 py-6 border border-white/70 hover:bg-[#14b8a6] hover:text-black rounded-3xl text-lg font-medium transition">Event / Venue Booking</a>
       </div>
     </div>
   </section>
@@ -373,7 +381,44 @@
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('hidden');
     }
-    
+
+    // Active navigation highlighting (EVENTS MODULE only highlights when actually in that section)
+    function highlightActiveSection() {
+      const sections = [
+        { id: 'opening', navId: 'nav-opening' },
+        { id: 'why', navId: 'nav-why' },
+        { id: 'retail', navId: 'nav-retail' },
+        { id: 'luxury', navId: 'nav-luxury' },
+        { id: 'dining', navId: 'nav-dining' },
+        { id: 'attractions', navId: 'nav-attractions' },
+        { id: 'events', navId: 'nav-events' },
+        { id: 'expand-events', navId: 'nav-events-module' }
+      ];
+
+      let current = 'opening';
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i].id);
+        if (!section) continue;
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 200) {
+          current = sections[i].id;
+          break;
+        }
+      }
+
+      // Remove active from all links
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+      // Add active only to the current section
+      const activeLink = document.getElementById(sections.find(s => s.id === current).navId);
+      if (activeLink) activeLink.classList.add('active');
+    }
+
+    window.addEventListener('scroll', highlightActiveSection);
+    window.addEventListener('load', highlightActiveSection);
+
+    // Pause hero video when scrolled past
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('heroVideo');
       if (window.scrollY > window.innerHeight * 1.2) {
@@ -381,6 +426,7 @@
       }
     });
     
+    console.log('%c✅ EVENTS MODULE link now only highlights when you reach that section!', 'color:#14b8a6; font-family:monospace; font-size:14px');
   </script>
 </body>
 </html>
