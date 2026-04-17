@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Mall of America® Interactive Sales Deck – The ultimate destination platform for retailers, sponsors &amp; event producers.">
+  
+  <!-- Favicon - Shows MOA logo in browser tab -->
+  <link rel="icon" href="https://www.mallofamerica.com/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://www.mallofamerica.com/favicon.ico" type="image/x-icon">
+
   <title>Mall of America® • The Ultimate Destination Platform</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -112,7 +117,10 @@
       </div>
 
       <div class="flex items-center gap-4">
-        <a href="mailto:leasing@mallofamerica.com" class="px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-[#14b8a6] hover:text-black transition-all">LEASING INQUIRY</a>
+        <a href="mailto:leasing@mallofamerica.com" 
+           class="px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-[#14b8a6] hover:text-black transition-all">
+          LEASING INQUIRY
+        </a>
         <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
       </div>
     </div>
@@ -128,7 +136,8 @@
         <a href="#events" onclick="toggleMobileMenu()" class="nav-link">Events &amp; Platform</a>
         <a href="#sponsorship" onclick="toggleMobileMenu()" class="nav-link">Sponsorship</a>
         <a href="#leasing" onclick="toggleMobileMenu()" class="nav-link">Leasing Paths</a>
-        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu();" class="nav-link">EXPANDABLE EVENTS MODULE</a>
+        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu();" 
+           class="nav-link">EXPANDABLE EVENTS MODULE</a>
       </div>
     </div>
   </nav>
@@ -306,12 +315,11 @@
     </div>
   </section>
 
-  <!-- NEW: SPONSORSHIP MODULE -->
+  <!-- SPONSORSHIP MODULE -->
   <section id="sponsorship" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#1a0f2e]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <h2 class="heading-font text-5xl font-bold mb-6">Sponsorship &amp; Brand Partnerships</h2>
       <p class="text-xl text-zinc-400 mb-12">Partner with the most visited destination in the Midwest and reach millions of engaged consumers.</p>
-      
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card-hover bg-black rounded-3xl p-8 text-center">
           <div class="text-[#14b8a6] text-4xl mb-4">Platinum</div>
@@ -329,17 +337,15 @@
           <p class="text-zinc-400">Targeted campaigns and seasonal activations</p>
         </div>
       </div>
-      
       <a href="mailto:sponsorship@mallofamerica.com" class="mt-12 inline-block px-8 py-4 bg-[#14b8a6] text-black font-semibold rounded-3xl">Become a Sponsor Today</a>
     </div>
   </section>
 
-  <!-- NEW: LEASING PATHS MODULE -->
+  <!-- LEASING PATHS -->
   <section id="leasing" class="section py-28 bg-gradient-to-br from-black to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <h2 class="heading-font text-5xl font-bold mb-6">Leasing Paths</h2>
       <p class="text-xl text-zinc-400 mb-12">Tailored opportunities for every brand type.</p>
-      
       <div class="grid md:grid-cols-4 gap-6">
         <div class="card-hover bg-black rounded-3xl p-8">
           <div class="text-[#14b8a6] text-3xl mb-4">Luxury</div>
@@ -358,12 +364,11 @@
           <p class="font-semibold">Flexible short-term spaces perfect for testing concepts or seasonal activations.</p>
         </div>
       </div>
-      
       <a href="mailto:leasing@mallofamerica.com" class="mt-12 inline-block px-8 py-4 bg-[#14b8a6] text-black font-semibold rounded-3xl">Start Your Leasing Conversation</a>
     </div>
   </section>
 
-  <!-- PHASE 2: FULLY WORKING EXPANDABLE EVENTS MODULE -->
+  <!-- EVENTS MODULE -->
   <section id="expand-events" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
       <div class="flex justify-between items-end border-b border-white/10 pb-8">
@@ -478,7 +483,7 @@
       if (window.scrollY > window.innerHeight * 1.2) hero.pause();
     });
     
-    console.log('%c✅ Full code with Sponsorship Module + Leasing Paths Module added. All Phase 2 requirements satisfied.', 'color:#14b8a6; font-family:monospace; font-size:14px');
+    console.log('%c✅ Favicon added + all modules included. Brand logo will now show in browser tab!', 'color:#14b8a6; font-family:monospace; font-size:14px');
   </script>
 </body>
 </html>
