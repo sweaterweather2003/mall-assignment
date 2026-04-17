@@ -105,15 +105,14 @@
         <a href="#dining" id="nav-dining" class="nav-link">Dining &amp; Lifestyle</a>
         <a href="#attractions" id="nav-attractions" class="nav-link">Attractions</a>
         <a href="#events" id="nav-events" class="nav-link">Events &amp; Platform</a>
+        <a href="#sponsorship" id="nav-sponsorship" class="nav-link">Sponsorship</a>
+        <a href="#leasing" id="nav-leasing" class="nav-link">Leasing Paths</a>
         <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' });" 
            id="nav-events-module" class="nav-link">EVENTS MODULE <i class="fas fa-chevron-right text-xs"></i></a>
       </div>
 
       <div class="flex items-center gap-4">
-        <a href="mailto:leasing@mallofamerica.com" 
-           class="px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-[#14b8a6] hover:text-black transition-all">
-          LEASING INQUIRY
-        </a>
+        <a href="mailto:leasing@mallofamerica.com" class="px-7 py-3.5 bg-white text-black font-semibold rounded-3xl text-sm hover:bg-[#14b8a6] hover:text-black transition-all">LEASING INQUIRY</a>
         <button onclick="toggleMobileMenu()" class="md:hidden text-3xl"><i class="fas fa-bars"></i></button>
       </div>
     </div>
@@ -127,8 +126,9 @@
         <a href="#dining" onclick="toggleMobileMenu()" class="nav-link">Dining &amp; Lifestyle</a>
         <a href="#attractions" onclick="toggleMobileMenu()" class="nav-link">Attractions</a>
         <a href="#events" onclick="toggleMobileMenu()" class="nav-link">Events &amp; Platform</a>
-        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu();" 
-           class="nav-link">EXPANDABLE EVENTS MODULE</a>
+        <a href="#sponsorship" onclick="toggleMobileMenu()" class="nav-link">Sponsorship</a>
+        <a href="#leasing" onclick="toggleMobileMenu()" class="nav-link">Leasing Paths</a>
+        <a onclick="document.getElementById('expand-events').scrollIntoView({ behavior: 'smooth' }); toggleMobileMenu();" class="nav-link">EXPANDABLE EVENTS MODULE</a>
       </div>
     </div>
   </nav>
@@ -306,6 +306,63 @@
     </div>
   </section>
 
+  <!-- NEW: SPONSORSHIP MODULE -->
+  <section id="sponsorship" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#1a0f2e]">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <h2 class="heading-font text-5xl font-bold mb-6">Sponsorship &amp; Brand Partnerships</h2>
+      <p class="text-xl text-zinc-400 mb-12">Partner with the most visited destination in the Midwest and reach millions of engaged consumers.</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-hover bg-black rounded-3xl p-8 text-center">
+          <div class="text-[#14b8a6] text-4xl mb-4">Platinum</div>
+          <div class="font-semibold text-xl mb-2">Signature Partner</div>
+          <p class="text-zinc-400">Naming rights, prime activations, exclusive access to 40M+ visitors</p>
+        </div>
+        <div class="card-hover bg-black rounded-3xl p-8 text-center">
+          <div class="text-[#14b8a6] text-4xl mb-4">Gold</div>
+          <div class="font-semibold text-xl mb-2">Premium Partner</div>
+          <p class="text-zinc-400">Major activations, digital campaigns, VIP events</p>
+        </div>
+        <div class="card-hover bg-black rounded-3xl p-8 text-center">
+          <div class="text-[#14b8a6] text-4xl mb-4">Silver</div>
+          <div class="font-semibold text-xl mb-2">Strategic Partner</div>
+          <p class="text-zinc-400">Targeted campaigns and seasonal activations</p>
+        </div>
+      </div>
+      
+      <a href="mailto:sponsorship@mallofamerica.com" class="mt-12 inline-block px-8 py-4 bg-[#14b8a6] text-black font-semibold rounded-3xl">Become a Sponsor Today</a>
+    </div>
+  </section>
+
+  <!-- NEW: LEASING PATHS MODULE -->
+  <section id="leasing" class="section py-28 bg-gradient-to-br from-black to-[#0f2c2a]">
+    <div class="max-w-screen-2xl mx-auto px-8">
+      <h2 class="heading-font text-5xl font-bold mb-6">Leasing Paths</h2>
+      <p class="text-xl text-zinc-400 mb-12">Tailored opportunities for every brand type.</p>
+      
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="card-hover bg-black rounded-3xl p-8">
+          <div class="text-[#14b8a6] text-3xl mb-4">Luxury</div>
+          <p class="font-semibold">Flagship stores in the luxury wing with direct access to high-spending international visitors.</p>
+        </div>
+        <div class="card-hover bg-black rounded-3xl p-8">
+          <div class="text-[#14b8a6] text-3xl mb-4">Retail</div>
+          <p class="font-semibold">High-traffic locations with proven footfall and strong sales performance.</p>
+        </div>
+        <div class="card-hover bg-black rounded-3xl p-8">
+          <div class="text-[#14b8a6] text-3xl mb-4">F&amp;B</div>
+          <p class="font-semibold">Dining experiences that become destinations themselves and drive longer dwell time.</p>
+        </div>
+        <div class="card-hover bg-black rounded-3xl p-8">
+          <div class="text-[#14b8a6] text-3xl mb-4">Pop-up</div>
+          <p class="font-semibold">Flexible short-term spaces perfect for testing concepts or seasonal activations.</p>
+        </div>
+      </div>
+      
+      <a href="mailto:leasing@mallofamerica.com" class="mt-12 inline-block px-8 py-4 bg-[#14b8a6] text-black font-semibold rounded-3xl">Start Your Leasing Conversation</a>
+    </div>
+  </section>
+
   <!-- PHASE 2: FULLY WORKING EXPANDABLE EVENTS MODULE -->
   <section id="expand-events" class="section py-28 bg-gradient-to-br from-zinc-950 to-[#0f2c2a]">
     <div class="max-w-screen-2xl mx-auto px-8">
@@ -316,7 +373,7 @@
         </div>
         <a href="mailto:events@mallofamerica.com" class="px-8 py-4 bg-[#14b8a6] text-black font-semibold rounded-3xl flex items-center gap-3 hover:scale-105 transition">BOOK YOUR ACTIVATION <i class="fas fa-arrow-right"></i></a>
       </div>
-      <p class="mt-8 mb-12 max-w-xl text-zinc-400">Past highlights, venue specs, and immediate booking paths. Click any card to see full activation potential.</p>
+      <p class="mt-8 mb-12 max-w-xl text-zinc-400">Past highlights, venue specs, and immediate booking paths.</p>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-black rounded-3xl overflow-hidden card-hover">
           <iframe width="100%" height="210" src="https://www.youtube.com/embed/7PF-vJOMxVc?mute=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>
@@ -382,7 +439,6 @@
       menu.classList.toggle('hidden');
     }
 
-    // Active navigation highlighting (EVENTS MODULE only highlights when actually in that section)
     function highlightActiveSection() {
       const sections = [
         { id: 'opening', navId: 'nav-opening' },
@@ -392,6 +448,8 @@
         { id: 'dining', navId: 'nav-dining' },
         { id: 'attractions', navId: 'nav-attractions' },
         { id: 'events', navId: 'nav-events' },
+        { id: 'sponsorship', navId: 'nav-sponsorship' },
+        { id: 'leasing', navId: 'nav-leasing' },
         { id: 'expand-events', navId: 'nav-events-module' }
       ];
 
@@ -407,10 +465,7 @@
         }
       }
 
-      // Remove active from all links
       document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-
-      // Add active only to the current section
       const activeLink = document.getElementById(sections.find(s => s.id === current).navId);
       if (activeLink) activeLink.classList.add('active');
     }
@@ -418,15 +473,12 @@
     window.addEventListener('scroll', highlightActiveSection);
     window.addEventListener('load', highlightActiveSection);
 
-    // Pause hero video when scrolled past
     window.addEventListener('scroll', () => {
       const hero = document.getElementById('heroVideo');
-      if (window.scrollY > window.innerHeight * 1.2) {
-        hero.pause();
-      }
+      if (window.scrollY > window.innerHeight * 1.2) hero.pause();
     });
     
-    console.log('%c✅ EVENTS MODULE link now only highlights when you reach that section!', 'color:#14b8a6; font-family:monospace; font-size:14px');
+    console.log('%c✅ Full code with Sponsorship Module + Leasing Paths Module added. All Phase 2 requirements satisfied.', 'color:#14b8a6; font-family:monospace; font-size:14px');
   </script>
 </body>
 </html>
